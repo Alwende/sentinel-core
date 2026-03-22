@@ -27,4 +27,14 @@ on:
                                                                                                                           else
                                                                                                                                     echo "FAILURE: No Log Found."
                                                                                                                                                 exit 1
-                                                                                                                                                        fi
+                                                                                                                                                f- name: Run Sentinel-Core Audit
+                                                                                                                                                        run: ./bin/sentinel_audit.sh
+                                                                                                                                                          
+                                                                                                                                                              - name: Verify Log Creation
+                                                                                                                                                                      run: |
+                                                                                                                                                                                if [ -f bin/system_audit_*.log ] || [ -f system_audit_*.log ]; then
+                                                                                                                                                                                          echo "SUCCESS: Audit Log Generated."
+                                                                                                                                                                                                    else
+                                                                                                                                                                                                              echo "FAILURE: No Log Found."
+                                                                                                                                                                                                                          exit 1
+                                                                                                                                                                                                                                  fii
