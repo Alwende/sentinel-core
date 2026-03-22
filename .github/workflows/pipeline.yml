@@ -9,8 +9,6 @@ on:
 jobs:
   audit-test:
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
     - name: Checkout Code
@@ -20,6 +18,9 @@ jobs:
       run: chmod +x bin/sentinel_audit.sh
 
     - name: Run Sentinel-Core Audit
+      # EXPLICIT INJECTION: We pass the Secret to the Script env here
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
         cd bin
         ./sentinel_audit.sh
