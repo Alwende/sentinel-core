@@ -5,7 +5,7 @@ set -u
 # --- CONFIGURATION ---
 # Pulls URL from Environment Variable for Security
 WEBHOOK_URL="${SLACK_WEBHOOK_URL:-}"
-DISK_THRESHOLD=1  # Set to 1% for instant verification
+DISK_THRESHOLD=90  # Set to 90% for production use
 
 # --- NOTIFICATION ENGINE ---
 send_slack_alert() {
