@@ -9,6 +9,8 @@ on:
 jobs:
   audit-test:
     runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
     - name: Checkout Code
@@ -26,9 +28,7 @@ jobs:
     - name: Verify Log Creation
       run: |
         if ls bin/system_audit_*.log 1> /dev/null 2>&1; then
-          echo "SUCCESS: Audit Log Generated in bin/ folder."
-        elif ls system_audit_*.log 1> /dev/null 2>&1; then
-          echo "SUCCESS: Audit Log Generated in root folder."
+          echo "SUCCESS: Audit Log Generated."
         else
           echo "FAILURE: No Log Found."
           exit 1
