@@ -39,3 +39,23 @@ resource "google_artifact_registry_repository" "sentinel_gcp_registry" {
 
 output "aws_registry_url" { value = aws_ecr_repository.sentinel_aws_registry.repository_url }
 output "gcp_registry_url" { value = google_artifact_registry_repository.sentinel_gcp_registry.name }
+
+# --- GKE CLUSTER (THE 10,000 DEVICE ENGINE) ---
+resource "google_container_cluster" "sentinel_cluster" {
+  name     = "sentinel-production-cluster"
+  location = "us-central1-a"
+
+  # We start small to save credits, but this can scale to 10,000 nodes
+  initial_node_count = 1
+
+  node_config {
+    machine_type = "e2-medium"
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+  }
+}
+
+output "kubernetes_cluster_name" {
+  value = google_container_cluster.sentinel_cluster.name
+}
