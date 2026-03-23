@@ -26,7 +26,7 @@ resource "aws_ecr_repository" "sentinel_aws_registry" {
 
 # --- GOOGLE CLOUD CONFIGURATION ---
 provider "google" {
-  project = "YOUR_GCP_PROJECT_ID" # We will replace this with your actual ID
+  project = "charming-scarab-474407-i8" # We will replace this with your actual ID
   region  = "us-central1"
 }
 
