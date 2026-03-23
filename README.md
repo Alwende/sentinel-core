@@ -19,7 +19,7 @@ Sentinel-Core is a professional-grade Linux system health auditor. v1.1 now feat
 ## 🚀 Quick Start
 Deploy the Sentinel-Core auditor in under 10 seconds:
 
-\`\`\`bash
+```bash
 # Clone the repository
 git clone https://github.com/Alwende/sentinel-core.git
 
@@ -32,13 +32,13 @@ export SLACK_WEBHOOK_URL="your_webhook_url_here"
 # Grant execution power and run
 chmod +x sentinel_audit.sh
 ./sentinel_audit.sh
-\`\`\`
+```
 
 ## 🏗️ Architecture
 The project follows a modular, enterprise-standard directory structure:
-- **\`/bin\`**: Contains the \`sentinel_audit.sh\` core engine.
-- **\`/docs\`**: Contains the formal Project Charter and strategic specifications.
-- **\`.github\`**: Contains the CI/CD Automation Pipeline (Secret-aware).
+- **`/bin`**: Contains the `sentinel_audit.sh` core engine.
+- **`/docs`**: Contains the formal Project Charter and strategic specifications.
+- **`.github`**: Contains the CI/CD Automation Pipeline (Secret-aware).
 
 ## 📊 Core Capabilities
 - **Active Alerting (v1.1):** Real-time Slack notifications triggered when disk usage exceeds 90%.
