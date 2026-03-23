@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentinel-Core Command Center</title>
+    <style>
+        body { font-family: sans-serif; background: #1a1a1a; color: #fff; text-align: center; }
+        .status-box { border: 2px solid #00ff00; display: inline-block; padding: 20px; margin-top: 50px; }
+        .success { color: #00ff00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Sentinel-Core Dashboard</h1>
+    <div class="status-box">
+        <p>System Status: <span class="success">{{ status }}</span></p>
+        <p>Last Global Audit: {{ last_audit }}</p>
+    </div>
+</body>
+</html>

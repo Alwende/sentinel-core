@@ -1,17 +1,15 @@
-# 🛡️ Sentinel-Core Enterprise Chassis (v1.2.0-alpha)
-FROM alpine:latest
+# 🛡️ Sentinel-Core Multi-Role Chassis (Verified Alpine)
+FROM python:3.11-alpine
 
-# Install necessary POSIX tools for execution and alerting
+# Install system dependencies
 RUN apk add --no-cache bash curl
 
-# Set internal working directory
 WORKDIR /app
+COPY . .
 
-# Copy the audit engine into the container filesystem
-COPY bin/sentinel_audit.sh /app/sentinel_audit.sh
+# Install Python requirements
+RUN pip install --no-cache-dir flask
 
-# Grant execution permissions to the script
-RUN chmod +x /app/sentinel_audit.sh
-
-# Define the default command to execute the auditor
-ENTRYPOINT ["/app/sentinel_audit.sh"]
+# Default to the Dashboard for the Container view
+EXPOSE 5000
+ENTRYPOINT ["python", "dashboard/app.py"]
