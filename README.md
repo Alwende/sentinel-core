@@ -50,7 +50,7 @@ The project follows a modular, enterprise-standard directory structure:
 ## 🗺️ Roadmap (2026 Strategy)
 - [x] **v1.0:** Core Engine & CI/CD Pipeline.
 - [x] **v1.1:** Slack Webhook integration & Secret Management.
-- [▶️] **v1.2:** Containerization (In Progress) via Docker for Cloud-Native deployments.
+- [▶️] **v1.2:** Containerization & IaC (Terraform)  via Docker for Cloud-Native deployments.
 - [ ] **v1.5:** Web-based centralized dashboard (Python/Flask).
 
 ## 🏛️ Project Charter
