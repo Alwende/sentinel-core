@@ -51,7 +51,7 @@ The project follows a modular, enterprise-standard directory structure:
 - [x] **v1.0:** Core Engine & CI/CD Pipeline.
 - [x] **v1.1:** Slack Webhook integration & Secret Management.
 - [▶️] **v1.2:** Containerization & IaC (Terraform)  via Docker for Cloud-Native deployments.
-- [▶️] **v1.5:** Web-based (In Progress) centralized dashboard (Python/Flask).
+- [✅] **v1.5:** Web-based (Completed) centralized dashboard (Python/Flask).
 
 ## 🏛️ Project Charter
 For the full strategic overview and business case, please refer to the [Official Project Charter](docs/CHARTER.md).
@@ -60,3 +60,6 @@ For the full strategic overview and business case, please refer to the [Official
 **Lead Architect:** [Alwende](https://github.com/Alwende), PMP  
 **License:** [MIT License](LICENSE)  
 © 2026 | Professional Open Source Systems Engineering
+
+## 🚀 Milestone 6: Orchestration
+- [ ] **v2.0:** Kubernetes (EKS/GKE) Production Cluster
