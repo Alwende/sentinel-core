@@ -1,5 +1,5 @@
-# 🛡️ Sentinel-Core Cloud Infrastructure (v1.2.0-alpha)
-# Target: Amazon Web Services (AWS)
+# 🛡️ Sentinel-Core Multi-Cloud Infrastructure (v1.2.0-alpha)
+# Targets: AWS & Google Cloud Platform (GCP)
 
 terraform {
   required_providers {
@@ -7,12 +7,35 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0"
+    }
   }
 }
 
+# --- AWS CONFIGURATION ---
 provider "aws" {
-  region = "us-east-1" # The heart of Amazon's infrastructure
+  region = "us-east-1"
 }
 
-# Placeholder for the Sentinel-Core Container Service
-# This is where we will define the AWS Fargate cluster to run our Docker image
+resource "aws_ecr_repository" "sentinel_aws_registry" {
+  name                 = "sentinel-core-enterprise"
+  image_scanning_configuration { scan_on_push = true }
+}
+
+# --- GOOGLE CLOUD CONFIGURATION ---
+provider "google" {
+  project = "YOUR_GCP_PROJECT_ID" # We will replace this with your actual ID
+  region  = "us-central1"
+}
+
+resource "google_artifact_registry_repository" "sentinel_gcp_registry" {
+  location      = "us-central1"
+  repository_id = "sentinel-core-enterprise"
+  description   = "Sentinel-Core Private Docker Repository"
+  format        = "DOCKER"
+}
+
+output "aws_registry_url" { value = aws_ecr_repository.sentinel_aws_registry.repository_url }
+output "gcp_registry_url" { value = google_artifact_registry_repository.sentinel_gcp_registry.name }
