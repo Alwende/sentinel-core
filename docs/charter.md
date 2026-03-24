@@ -1,63 +1,63 @@
-# 📄 Project Charter: Sentinel-Core Enterprise (v2.1.0)
+# 📄 Project Charter: Sentinel-Core Enterprise (v2.0.0)
 
-**Project ID:** P-21-SENTINEL-GKE-2026  
-**Lead Architect & PM:** Dan Alwende, PMP  
-**Current Status:** Production / Active Deployment  
-**Last Updated:** March 24, 2026  
-
----
-
-## 1. Executive Summary & Business Case
-In the 2026 hyper-connected economy, infrastructure downtime for financial institutions like KCB or Equity Bank translates directly to massive revenue loss and reputational damage. **Sentinel-Core v2.1.0** has evolved from a local diagnostic agent into a **Distributed Cloud-Native Observability Platform**. 
-
-By migrating from standalone Bash scripts to a **Google Kubernetes Engine (GKE)** orchestrated environment, we have solved the problem of "Silent Failures." Sentinel-Core now provides a centralized, real-time "Single Pane of Glass" for monitoring global node health, ensuring that system bottlenecks are identified and mitigated before they impact the end-user.
-
-### Strategic Justification:
-* **Operational Resilience:** Automates the monitoring of 10,000+ distributed nodes.
-* **Cost Optimization:** Uses ultra-slim Alpine-based containers to minimize cloud compute overhead.
-* **Data-Driven Leadership:** Provides executives with live hardware telemetry (CPU/RAM/Disk) to inform capacity planning.
+**Project ID:** P-20-SENTINEL-GKE-2026
+**Lead Architect & PM:** Dan Alwende, PMP
+**Current Status:** Production Release Candidate (v2.0.0)
+**Last Updated:** March 24, 2026
 
 ---
 
-## 2. Project Goals & High-Level Objectives
-* **Global Observability (v2.1.0):** Deliver a web-based SaaS dashboard accessible via Global Load Balancer.
-* **Real-Time Telemetry:** Achieve a <5-second polling interval for critical hardware metrics using the `psutil` integration.
-* **High Availability:** Utilize GKE self-healing and auto-scaling to ensure 99.99% uptime of the monitoring agent itself.
-* **Security & Governance:** Implement VPC-level firewalling and Secret Management for all external integrations.
+## 1. Executive Summary: The Business Need
+In the high-velocity banking and tech sectors (KCB, Equity, Oracle), **Observability is a Profit Center.** Every second of "Unknown System State" is a potential million-dollar outage. 
+
+### The Problem:
+Existing enterprise solutions are "Resource Heavy" and "Cost Prohibitive." Organizations are paying 20% "Monitoring Tax" on their cloud bills, often with agents that require complex manual installation.
+
+### The Business Case:
+**Sentinel-Core v2.0.0** solves this by providing a **High-Availability, Low-Footprint Monitoring SaaS**. We have moved from a local Bash script to a **Google Kubernetes Engine (GKE)** architecture. This transition allows for zero-touch deployment and instant global visibility across 10,000+ nodes with a hardware overhead of less than 1%.
 
 ---
 
-## 3. Project Scope
-
-### In-Scope (The v2.1.0 Standard):
-* **Orchestration:** Full Kubernetes (GKE) deployment with LoadBalancer Ingress.
-* **Containerization:** Hardened Python 3.11-Alpine microservices.
-* **Live Dashboard:** Flask-based UI with asynchronous JavaScript (AJAX) polling.
-* **Hardware Interfacing:** Real-time extraction of CPU Load, Virtual Memory, and Partition usage.
-
-### Out-of-Scope (Future Roadmapped):
-* **Persistent Data Lake:** (Planned v2.5) Long-term metric storage via Prometheus/Grafana.
-* **IAM Integration:** (Planned v2.5) Role-Based Access Control (RBAC) for dashboard users.
-* **Multi-Cloud Failover:** (Planned v3.0) Disaster recovery across AWS and Azure.
+## 2. The Sentinel Solution
+Our solution provides a **Single Pane of Glass** for distributed infrastructure. 
+* **Zero-Downtime Orchestration:** Using GKE to ensure the auditor never goes down.
+* **Hardened Microservices:** Alpine-based containers that reduce the attack surface for banking-grade security.
+* **Global Accessibility:** Integrated Load Balancing for executive-level oversight from any location.
 
 ---
 
-## 4. Key Stakeholders
-* **Executive Leadership (CIO/CTO):** Strategic ROI and system-wide health oversight.
-* **SRE & DevOps Teams:** Primary operators managing cluster stability.
-* **Compliance & Audit Teams:** Ensuring infrastructure meets banking-grade security standards.
+## 3. Product Features & Roadmap (v2.0.0 Focus)
+
+### Current Capabilities (v2.0.0 Stable):
+* **Cloud-Native Deployment:** Fully automated GKE orchestration.
+* **LoadBalancer Integration:** External VIP access for decentralized monitoring.
+* **Resource Optimization:** Sub-100MB container footprint (Currently ~60MB).
+* **VPC-Level Security:** Priority-based firewalling and automated ingress control.
+
+### In-Development (v2.1.0):
+* **Real-Time Telemetry:** Live hardware polling via `psutil`.
+* **AJAX Dashboard:** Asynchronous UI updates without page refreshes.
+
+---
+
+## 4. Market Positioning: Why Sentinel-Core?
+| Feature | Sentinel-Core | Traditional Agents (Datadog/NewRelic) |
+| :--- | :--- | :--- |
+| **Resource Usage** | < 1% CPU/RAM | 5% - 15% CPU/RAM |
+| **Cost** | Open Source / Internal | Heavy SaaS Licensing Fees |
+| **Deployment** | 1-Click K8s Manifest | Complex Agent Installation |
+| **Security** | Internal VPC Hardened | Third-Party Data Exposure |
 
 ---
 
 ## 5. Success Criteria & KPIs
-* **MTTR Reduction:** Reduce Mean Time to Recovery by 40% through proactive telemetry.
-* **Deployment Footprint:** Maintain a container image size under 100MB (Current: ~60MB).
-* **Network Integrity:** Zero unauthorized access via strict VPC Ingress/Egress rules.
-* **Scalability:** Successful horizontal pod autoscaling under simulated load of 5,000 requests/sec.
+* **MTTR Reduction:** 40% improvement in Mean Time to Recovery.
+* **Cloud spend:** 15% reduction in monitoring-related compute costs.
+* **Global Reach:** 100% reachability of the public-facing LoadBalancer IP.
 
 ---
 
 ## 6. Formal Approval
-**Lead Architect:** Dan Alwende, PMP  
-**Organization:** Professional Open Source Systems Engineering  
+**Lead Architect:** Dan Alwende, PMP
+**Organization:** Professional Open Source Systems Engineering
 **Date:** March 24, 2026
