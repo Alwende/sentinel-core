@@ -28,13 +28,16 @@
 * **Constraints:** Budgetary limits on cloud spend require the use of Preemptible VMs/Spot instances where applicable.
 * **Risks:** High-frequency polling may lead to network egress costs if not optimized; potential for API throttling on the cloud provider side.
 
-## 5. Project Roadmap (Phased Milestone)
-| Milestone | Version | Description | Status |
+## 5. Project Roadmap (Detailed Milestone History)
+| Milestone | Version | Phase Description | Status |
 | :--- | :--- | :--- | :--- |
-| **M1** | v1.1.0 | Core Bash Engine & Slack Integration | Complete |
-| **M2** | v2.0.0 | GKE Cluster Orchestration & VPC Setup | Complete |
-| **M3** | v2.1.0 | Real-Time SaaS Dashboard & Telemetry | **Current** |
-| **M4** | v2.5.0 | Prometheus Persistence & Data Visualization | Future |
+| **M1** | v1.0.0 | **Core Engine:** Baseline Bash auditing & GitHub Actions CI/CD. | Complete |
+| **M2** | v1.1.0 | **Active Alerting:** Slack Webhook integration & Secret Management. | Complete |
+| **M3** | v1.2.0 | **Portability:** Containerization (Docker) & Local Image Registry. | Complete |
+| **M4** | v1.5.0 | **Visualization:** Centralized Dashboard prototype (Flask/Python). | Complete |
+| **M5** | v2.0.0 | **Orchestration:** Migration to GKE & VPC Infrastructure (Terraform). | Complete |
+| **M6** | v2.1.0 | **Production SaaS:** Real-time Telemetry & Global Load Balancing. | **Active** |
+| **M7** | v2.5.0 | **Persistence:** Prometheus/Grafana Deep-Metrics & Data Lake. | Future |
 
 ## 6. Authorization
 This document formally authorizes Dan Alwende, PMP, to apply organizational resources to the activities defined within the scope of Sentinel-Core v2.1.0.
