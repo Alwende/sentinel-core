@@ -13,18 +13,18 @@
 **Business Need:** Organizations operating at scale require real-time visibility into distributed node health without the overhead of heavy legacy agents. Sentinel-Core v2.1.0 leverages cloud-native orchestration to provide 99.9% uptime of the monitoring layer itself, ensuring business continuity and reducing Mean Time to Recovery (MTTR) by providing immediate telemetry.
 
 ## 2. Project Objectives & Success Criteria
-* **Cloud-Native Resilience:** Successfully migrate 100% of core auditing logic to a Google Kubernetes Engine (GKE) environment.
+* **Cloud-Native Resilience:** Successfully migrate 100% of core auditing logic to a multi-cloud (GCP/AWS) environment.
 * **Low-Footprint Performance:** Maintain a containerized image size below 70MB to minimize compute overhead and attack surface.
 * **Real-Time Telemetry:** Deliver live hardware metrics (CPU, Memory, Disk) via `psutil` integration with a polling frequency of <10 seconds.
 * **Global Access:** Securely expose the monitoring dashboard via a Global Load Balancer VIP.
 
 ## 3. High-Level Requirements
-* **Orchestration:** Deployment must be managed via K8s manifests for self-healing and auto-scaling.
+* **Orchestration:** Deployment managed via K8s (GKE/EKS) for self-healing and auto-scaling.
 * **Compatibility:** The agent must operate on a Python 3.11-Alpine base to ensure cross-platform portability.
-* **Security:** All ingress must be controlled via VPC Firewall rules, restricting access to authorized administrative ports.
+* **Security:** All ingress controlled via VPC/IAM Firewall rules, restricting access to authorized administrative ports.
 
 ## 4. Risks, Assumptions, and Constraints
-* **Assumptions:** Continuous availability of GKE Control Plane and Artifact Registry.
+* **Assumptions:** Continuous availability of GKE/EKS Control Planes and Artifact Registries.
 * **Constraints:** Budgetary limits on cloud spend require the use of Preemptible VMs/Spot instances where applicable.
 * **Risks:** High-frequency polling may lead to network egress costs if not optimized; potential for API throttling on the cloud provider side.
 
@@ -35,8 +35,8 @@
 | **M2** | v1.1.0 | **Active Alerting:** Slack Webhook integration & Secret Management. | Complete |
 | **M3** | v1.2.0 | **Portability:** Containerization (Docker) & Local Image Registry. | Complete |
 | **M4** | v1.5.0 | **Visualization:** Centralized Dashboard prototype (Flask/Python). | Complete |
-| **M5** | v2.0.0 | **Orchestration:** Migration to GKE & VPC Infrastructure (Terraform). | Complete |
-| **M6** | v2.1.0 | **Production SaaS:** Real-time Telemetry & Global Load Balancing. | **Active** |
+| **M5** | v2.0.0 | **High Availability:** Multi-Cloud Orchestration (GKE/EKS) & VPC Infrastructure. | Complete |
+| **M6** | v2.1.0 | **Production SaaS:** Real-time Telemetry, AWS IAM Integration & Global LB. | **Active** |
 | **M7** | v2.5.0 | **Persistence:** Prometheus/Grafana Deep-Metrics & Data Lake. | Future |
 
 ## 6. Authorization
