@@ -1,19 +1,44 @@
 # 📄 Project Charter: Sentinel-Core Enterprise (v2.1.0)
-**Project ID:** P-21-SENTINEL-GKE-2026 | **Lead Architect:** Dan Alwende, PMP
 
-## 1. Executive Summary: The Business Need
-Modern enterprises (KCB, Equity Bank, Oracle) lose millions per hour of downtime. **Sentinel-Core** solves the "Observability Gap" by providing a low-footprint, high-availability monitoring SaaS that replaces resource-heavy legacy agents.
-
-## 2. The Solution (v2.1.0)
-* **Architecture:** Google Kubernetes Engine (GKE) for 99.9% resilience.
-* **Telemetry:** Real-time `psutil` injection for live hardware snapshots.
-* **Access:** Global LoadBalancer VIP (http://34.28.252.118).
-* **Efficiency:** <70MB Hardened Alpine containers to reduce cloud compute tax.
-
-## 3. Strategic Roadmap
-* [✅] **v1.0 - v1.1:** Core Engine & Slack Webhooks.
-* [✅] **v2.0 - v2.1:** K8s Orchestration & Real-time SaaS Dashboard (CURRENT).
-* [▶️] **v2.5:** Prometheus Persistence & Grafana Visualization.
+**Project ID:** P-21-SENTINEL-GKE-2026  
+**Lead Architect & PM:** Dan Alwende, PMP  
+**Sponsor:** Professional Open Source Systems Engineering  
+**Date:** March 24, 2026  
 
 ---
-© 2026 | Professional Open Source Systems Engineering
+
+## 1. Project Purpose & Business Case
+**Sentinel-Core** is designed to address the critical gap in lightweight, high-availability infrastructure monitoring. Current market solutions often impose a "Monitoring Tax," consuming significant system resources (CPU/RAM) just to observe the host. 
+
+**Business Need:** Organizations operating at scale require real-time visibility into distributed node health without the overhead of heavy legacy agents. Sentinel-Core v2.1.0 leverages cloud-native orchestration to provide 99.9% uptime of the monitoring layer itself, ensuring business continuity and reducing Mean Time to Recovery (MTTR) by providing immediate telemetry.
+
+## 2. Project Objectives & Success Criteria
+* **Cloud-Native Resilience:** Successfully migrate 100% of core auditing logic to a Google Kubernetes Engine (GKE) environment.
+* **Low-Footprint Performance:** Maintain a containerized image size below 70MB to minimize compute overhead and attack surface.
+* **Real-Time Telemetry:** Deliver live hardware metrics (CPU, Memory, Disk) via `psutil` integration with a polling frequency of <10 seconds.
+* **Global Access:** Securely expose the monitoring dashboard via a Global Load Balancer VIP.
+
+## 3. High-Level Requirements
+* **Orchestration:** Deployment must be managed via K8s manifests for self-healing and auto-scaling.
+* **Compatibility:** The agent must operate on a Python 3.11-Alpine base to ensure cross-platform portability.
+* **Security:** All ingress must be controlled via VPC Firewall rules, restricting access to authorized administrative ports.
+
+## 4. Risks, Assumptions, and Constraints
+* **Assumptions:** Continuous availability of GKE Control Plane and Artifact Registry.
+* **Constraints:** Budgetary limits on cloud spend require the use of Preemptible VMs/Spot instances where applicable.
+* **Risks:** High-frequency polling may lead to network egress costs if not optimized; potential for API throttling on the cloud provider side.
+
+## 5. Project Roadmap (Phased Milestone)
+| Milestone | Version | Description | Status |
+| :--- | :--- | :--- | :--- |
+| **M1** | v1.1.0 | Core Bash Engine & Slack Integration | Complete |
+| **M2** | v2.0.0 | GKE Cluster Orchestration & VPC Setup | Complete |
+| **M3** | v2.1.0 | Real-Time SaaS Dashboard & Telemetry | **Current** |
+| **M4** | v2.5.0 | Prometheus Persistence & Data Visualization | Future |
+
+## 6. Authorization
+This document formally authorizes Dan Alwende, PMP, to apply organizational resources to the activities defined within the scope of Sentinel-Core v2.1.0.
+
+---
+**Signed:** Dan Alwende, PMP  
+Lead Architect  
