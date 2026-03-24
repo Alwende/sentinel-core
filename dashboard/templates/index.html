@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sentinel-Core Command Center</title>
+    <title>Sentinel-Core Dashboard</title>
     <style>
-        body { font-family: sans-serif; background: #1a1a1a; color: #fff; text-align: center; }
-        .status-box { border: 2px solid #00ff00; display: inline-block; padding: 20px; margin-top: 50px; }
-        .success { color: #00ff00; font-weight: bold; }
+        body { font-family: 'Courier New', monospace; background: #0a0a0a; color: #00ff00; text-align: center; }
+        .container { margin-top: 50px; border: 2px solid #00ff00; display: inline-block; padding: 20px; }
+        .metric { font-size: 1.5em; margin: 10px; }
+        .value { color: #ffffff; }
     </style>
 </head>
 <body>
-    <h1>🛡️ Sentinel-Core Dashboard</h1>
-    <div class="status-box">
-        <p>System Status: <span class="success">{{ status }}</span></p>
-        <p>Last Global Audit: {{ last_audit }}</p>
+    <div class="container">
+        <h1>🛡️ Sentinel-Core Dashboard</h1>
+        <div class="metric">System Status: <span id="status" class="value">Loading...</span></div>
+        <div class="metric">CPU Usage: <span id="cpu" class="value">--</span></div>
+        <div class="metric">Memory: <span id="mem" class="value">--</span></div>
+        <div class="metric">Last Audit: <span id="audit" class="value">--</span></div>
     </div>
+    <script>
+        function updateStats() {
+            fetch('/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status').innerText = data.status;
+                    document.getElementById('cpu').innerText = data.cpu_usage;
+                    document.getElementById('mem').innerText = data.memory_usage;
+                    document.getElementById('audit').innerText = data.last_audit;
+                });
+        }
+        setInterval(updateStats, 5000);
+        updateStats();
+    </script>
 </body>
 </html>

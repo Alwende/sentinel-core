@@ -1,9 +1,9 @@
 FROM python:3.11-alpine
-RUN apk add --no-cache bash curl
+# psutil requires gcc and linux-headers on Alpine
+RUN apk add --no-cache bash curl gcc musl-dev linux-headers
 WORKDIR /app
 COPY . .
-RUN pip install --no-cache-dir flask
+RUN pip install --no-cache-dir flask psutil
 EXPOSE 5000
 ENV PYTHONUNBUFFERED=1
-# Force the Dashboard to run, keeping the container alive
 CMD ["python", "dashboard/app.py"]
