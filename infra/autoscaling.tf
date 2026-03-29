@@ -1,6 +1,10 @@
-resource "kubernetes_horizontal_pod_autoscaler" "sentinel_hpa" {
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
+resource "kubernetes_horizontal_pod_autoscaler_v1" "sentinel_hpa" {
   metadata {
-    name = "sentinel-core-hpa"
+    name      = "sentinel-core-hpa"
     namespace = "default"
   }
   spec {
