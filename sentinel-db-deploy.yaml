@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel-db
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: sentinel-db
+  template:
+    metadata:
+      labels:
+        app: sentinel-db
+    spec:
+      containers:
+      - name: db
+        image: postgres:15
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "sentinel_pass"
+        ports:
+        - containerPort: 5432
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+      - name: postgres-exporter
+        image: prometheuscommunity/postgres-exporter
+        ports:
+        - containerPort: 9187
+          name: metrics
+        env:
+        - name: DATA_SOURCE_NAME
+          value: "postgresql://postgres:sentinel_pass@localhost:5432/postgres?sslmode=disable"

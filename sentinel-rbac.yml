@@ -1,21 +1,21 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: sentinel-scaler-role
+  name: sentinel-monitor
 rules:
-- apiGroups: ["apps"]
-  resources: ["deployments"]
-  verbs: ["get", "patch", "list", "watch"]
+- apiGroups: [""]
+  resources: ["pods", "services", "endpoints"]
+  verbs: ["get", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: sentinel-scaler-binding
+  name: sentinel-monitor-binding
 subjects:
 - kind: ServiceAccount
   name: default
   namespace: default
 roleRef:
   kind: ClusterRole
-  name: sentinel-scaler-role
+  name: sentinel-monitor
   apiGroup: rbac.authorization.k8s.io

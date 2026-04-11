@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel-control
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sentinel-control
+  template:
+    metadata:
+      labels:
+        app: sentinel-control
+    spec:
+      containers:
+      - name: control-engine
+        image: alwende/sentinel-control:latest
+        env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        envFrom:
+        - secretRef:
+            name: sentinel-control-secrets
