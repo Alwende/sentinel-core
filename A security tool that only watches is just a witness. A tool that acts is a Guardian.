@@ -1,0 +1,60 @@
+
+**Sentinel-Core** is an industrial-grade Autonomous Security & Observability Platform. v5.3.0-PREMIUM marks the transition from passive monitoring to **Active Defense**, introducing real-time threat blocking and encrypted forensic telemetry.
+
+---
+
+## 🌐 Enterprise Command Center
+* **Production Status:** ACTIVE
+* **Current Version:** v5.3.0-PREMIUM (Stable)
+* **Infrastructure:** Google Kubernetes Engine (GKE) - Hardened Configuration
+* **Security Tier:** Active Defense & Encrypted Telemetry (FIPS-compliant logic)
+
+---
+
+## 🚀 The Evolution
+| Version | Phase | Milestone | Status |
+| :--- | :--- | :--- | :--- |
+| v1.0.0 | The Engine | Baseline Bash Auditor & CI/CD | Legacy |
+| v5.2.0 | GOLD | GCP Persistence & RBAC | Stable |
+| **v5.3.0** | **PREMIUM** | **Active Defense & Encrypted Telemetry** | **CURRENT** |
+
+---
+
+## 🏗️ Solutions Architecture (v5.3.0-PREMIUM)
+
+### 1. Active Defense: Automated Threat Blocking
+We have moved beyond alerting. The Sentinel now features an autonomous **Threat Blocking Agent**.
+* **Logic:** Real-time identification of malicious process IDs (PIDs) consuming excessive resources.
+* **Action:** Automated Null-Routing and resource termination of detected threats before system exhaustion.
+
+### 2. Encrypted Forensic Telemetry
+Engineered for Tier-1 Banking data privacy standards.
+* **Integrity:** All security packets are obfuscated/encrypted before transmission to the persistent ledger.
+* **Auditability:** A tamper-proof PostgreSQL audit trail records every anomaly, recovery, and block action, ensuring 100% forensic transparency for compliance audits.
+
+### 3. Autonomous Remediation (The Kill Switch)
+* **Self-Healing:** Verified **MTTR < 15s**.
+* **Resilience:** Logic-based self-recovery triggers a clean process reset if a threat is sustained beyond 15 seconds, purging volatile memory of potential exploits.
+
+---
+
+## 📊 Core Capabilities
+* **Active Defense:** Real-time PID null-routing and process isolation.
+* **Secure Persistence:** Encrypted PostgreSQL 15 forensic registry.
+* **Zero-Trust Boot:** App ignition is blocked until the DB handshake and schema integrity are verified.
+* **Banking Compliance:** Engineered for KCB/Safaricom/Equity-level security audit requirements.
+
+---
+
+## 🗺️ 2026 Strategic Roadmap
+- [✅] **M1-M7:** GKE Production Cluster & Real-time Telemetry.
+- [✅] **M8:** Persistence Layer & GCP VPC Architecture (v5.2.0-GOLD).
+- [✅] **M9:** Automated Remediation & Active Defense (v5.3.0-PREMIUM).
+- [▶️] **M10:** Distributed Threat Intelligence: Peer-to-peer attack signature sharing.
+
+---
+
+## 📑 Governance
+* **Lead Architect:** Dan Alwende, PMP
+* **License:** MIT
+* **Organization:** Professional Open Source Systems Engineering
